@@ -1,120 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loi chuc ngay moi vui ve</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #fef3f3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        overflow: hidden;
-      }
-      .container {
-        text-align: center;
-        background-color: #fff;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-        width: 320px;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-      }
-      h1 {
-        color: #ff69b4;
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-      p {
-        color: #333;
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
-      .heart {
-        color: #ff69b4;
-        font-size: 50px;
-        animation: float 2s ease-in-out infinite;
-      }
-      /* Heart floating effect */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-      }
-      /* Falling hearts */
-      .falling-hearts {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .heart-shape {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: #ff69b4;
-        transform: rotate(45deg);
-        animation: fall 3s linear infinite;
-        border-radius: 3px;
-      }
-      .heart-shape:before,
-      .heart-shape:after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: #ff69b4;
-        border-radius: 50%;
-      }
-      .heart-shape:before {
-        top: -10px;
-        left: 0;
-      }
-      .heart-shape:after {
-        left: 10px;
-        top: 0;
-      }
-      /* Falling animation */
-      @keyframes fall {
-        0% {
-          transform: translateY(-50px) rotate(45deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(400px) rotate(45deg);
-          opacity: 0;
-        }
-      }
-    </style>
+    <title>Merry Christmas</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Thêm font Google -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <h1>Chúc Cậu làm việc vui vẻ nheeeee!</h1>
-      <p>
-        Chúc cậu làm việc một ngày tràn đầy năng lượng, luôn vui vẻ và hehee nhớ
-        tới tớ nheeeee, hk đc quên tớ âu á nhe <span class="heart">❤️</span>
-      </p>
-      <!-- Falling hearts effect -->
-      <div class="falling-hearts">
-        <div class="heart-shape" style="left: 10%; animation-delay: 0s"></div>
-        <div class="heart-shape" style="left: 30%; animation-delay: 0.5s"></div>
-        <div class="heart-shape" style="left: 50%; animation-delay: 1s"></div>
-        <div class="heart-shape" style="left: 70%; animation-delay: 1.5s"></div>
-        <div class="heart-shape" style="left: 90%; animation-delay: 2s"></div>
+    <div class="snow-container"></div>
+    <div class="clouds">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/cloud.png?alt=media&token=acc83aac-8e9c-4783-8c6f-2a2531257d38"
+        class="cloud"
+        alt="cloud"
+      />
+    </div>
+    <div class="santa-container">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/santa.png?alt=media&token=a81ad9d6-4f75-498e-9ba4-3e28673c942f"
+        class="santa"
+        alt="Santa"
+      />
+    </div>
+    <div class="christmas-content">
+      <h1 class="christmas-title">Merry Christmas</h1>
+      <div class="christmas-tree">
+        <div class="tree">
+          <div class="star-top">⭐</div>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/pineTree.png?alt=media&token=2d82b851-6e4e-4518-a7a8-e06126b47e34"
+            class="pine-tree-img"
+            alt="Christmas Tree"
+          />
+          <div class="bells-container"></div>
+        </div>
       </div>
     </div>
+    <div class="countdown">
+      <span id="days">00</span> ngày <span id="hours">00</span> giờ
+      <span id="minutes">00</span> phút <span id="seconds">00</span> giây
+    </div>
+    <audio id="bgMusic" loop>
+      <source
+        src="https://storage.googleapis.com/webai-54992.appspot.com/WeWishYouAMerryChristmas.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+    <button class="music-toggle">🔊</button>
+    <a
+      href="https://www.tiktok.com/@thnhnguyn271?_t=8sSV97FRv4p&_r=1&fbclid=IwY2xjawHWWVJleHRuA2FlbQIxMAABHRlmPY2KKYdyG7h8u9PTmQf2_hNYurL-vFpcbab0lUqAX_pqMWdleVmMyQ_aem_ZAxHY6BAk9-iKL_8moU5Hg"
+      target="_blank"
+      class="tiktok-logo"
+    >
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/webai-54992.appspot.com/o/logo-tiktok.png?alt=media&token=4473a42a-e492-4a4d-8821-ed9348ac2339"
+        alt="Create By"
+      />
+    </a>
+    <div class="fireworks-container"></div>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
